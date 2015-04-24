@@ -6,7 +6,7 @@ using Xamarin.UITest;
 using Xamarin.UITest.iOS;
 using Xamarin.UITest.Queries;
 
-namespace ClusterPrePermission.UITests
+namespace ClusterPrePermissions
 {
 	[TestFixture]
 	public class Tests

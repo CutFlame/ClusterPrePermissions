@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace ClusterPrePermission
+namespace ClusterPrePermissions
 {
 	[Register ("PermissionsTestViewController")]
 	partial class PermissionsTestViewController

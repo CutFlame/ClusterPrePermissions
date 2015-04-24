@@ -8,73 +8,73 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace ClusterPrePermission
+namespace ClusterPrePermissions
 {
+	#region enums
+
+	public enum ClusterDialogResult
+	{
+		/// User was not given the chance to take action.
+		/// This can happen if the permission was
+		/// already granted, denied, or restricted.
+		NoActionTaken,
+		/// User declined access in the user dialog or system dialog.
+		Denied,
+		/// User granted access in the user dialog or system dialog.
+		Granted,
+		/// The iOS parental permissions prevented access.
+		/// This outcome would only happen on the system dialog.
+		ParentallyRestricted
+	}
+
+	public enum ClusterAuthorizationStatus
+	{
+		/// Permission status undetermined.
+		UnDetermined,
+		/// Permission denied.
+		Denied,
+		/// Permission authorized.
+		Authorized,
+		/// The iOS parental permissions prevented access.
+		Restricted
+	}
+
+	public enum ClusterLocationAuthorizationType
+	{
+		/// the “when-in-use” authorization grants the app to start most
+		/// (but not all) location services while it is in the foreground.
+		WhenInUse,
+		/// the “always” authorization grants the app to start all
+		/// location services
+		Always,
+	}
+
+	public enum ClusterEventAuthorizationType
+	{
+		/// Authorization for events only
+		Event,
+		/// Authorization for reminders only
+		Reminder
+	}
+
+	public enum ClusterAVAuthorizationType
+	{
+		/// Authorization for Camera only
+		Camera,
+		/// Authorization for Microphone only
+		Microphone
+	}
+
+	enum ClusterTitleType
+	{
+		Request,
+		Deny
+	}
+
+	#endregion
+
 	public class ClusterPrePermissions : NSObject
 	{
-		#region enums
-
-		public enum ClusterDialogResult
-		{
-			/// User was not given the chance to take action.
-			/// This can happen if the permission was
-			/// already granted, denied, or restricted.
-			NoActionTaken,
-			/// User declined access in the user dialog or system dialog.
-			Denied,
-			/// User granted access in the user dialog or system dialog.
-			Granted,
-			/// The iOS parental permissions prevented access.
-			/// This outcome would only happen on the system dialog.
-			ParentallyRestricted
-		}
-
-		public enum ClusterAuthorizationStatus
-		{
-			/// Permission status undetermined.
-			UnDetermined,
-			/// Permission denied.
-			Denied,
-			/// Permission authorized.
-			Authorized,
-			/// The iOS parental permissions prevented access.
-			Restricted
-		}
-
-		public enum ClusterLocationAuthorizationType
-		{
-			/// the “when-in-use” authorization grants the app to start most
-			/// (but not all) location services while it is in the foreground.
-			WhenInUse,
-			/// the “always” authorization grants the app to start all
-			/// location services
-			Always,
-		}
-
-		public enum ClusterEventAuthorizationType
-		{
-			/// Authorization for events only
-			Event,
-			/// Authorization for reminders only
-			Reminder
-		}
-
-		public enum ClusterAVAuthorizationType
-		{
-			/// Authorization for Camera only
-			Camera,
-			/// Authorization for Microphone only
-			Microphone
-		}
-
-		enum ClusterTitleType
-		{
-			Request,
-			Deny
-		}
-
-		#endregion
-
 		public delegate void ClusterPrePermissionCompletionHandler (bool hasPermission, ClusterDialogResult userDialogResult, ClusterDialogResult systemDialogResult);
 
 		#region Private Members

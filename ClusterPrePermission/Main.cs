@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace ClusterPrePermission
+namespace ClusterPrePermissions
 {
 	public class Application
 	{
